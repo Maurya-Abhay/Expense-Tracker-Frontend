@@ -13,16 +13,16 @@ label{
 
 html,
 body{
-  height: 100vh;
-  width: 93vw;
+  height: 100svh;
+  width: 90svw;
 }
 
 body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 5svw;
+  margin-right: 5svw;
 }
 
 .container{
