@@ -1,86 +1,101 @@
-
 *,
 ::before,
-::after{
+::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-label{
+label {
   font-size: 20px;
 }
 
 html,
-body{
-  height: 100svh;
-  width: 90svw;
+body {
+  height: 100vh;
+  width: 100vw;
 }
 
-body{
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  margin-left: 5svw;
-  margin-right: 5svw;
+  overflow: hidden;
 }
 
-.container{
+.container {
   background-color: #FFF;
-  padding: 30px 25px;
+  padding: 10px 45px;
+  /* border-radius: 10px; */
   width: 100%;
-  max-width: 400px;
+  max-width: 100svh;
   box-shadow: 0px 0px 1px 0px rgba(66, 68, 90, 1);
-}
-
-.container > h1{
-  margin-bottom: 20px;
-}
-
-.container > form{
+  /* box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1); */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  height: 100%;
 }
 
-.container div{
+.container > h1 {
+  margin-bottom: 10px;
+}
+
+.container > form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.container div {
   display: flex;
   flex-direction: column;
 }
 
-.container input{
+.container input {
   width: 100%;
   font-size: 20px;
-  padding: 10px;
+  padding: 12px;
   border: none;
   outline: none;
   border-bottom: 1px solid black;
 }
 
-.container input::placeholder{
+.container input::placeholder {
   font-size: 12px;
   font-style: italic;
 }
 
-button{
-  background-color: purple;
+button {
+  background-color: #5856d6;
   border: none;
-  font-size: 15px;
+  font-size: 13px;
   color: white;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 3px;
+  padding: 6px;
   cursor: pointer;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 
-.user-section{
+.user-section {
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: #FFF;
+  z-index: 100;
+  padding: 5px;
+  margin-top: 5px;
+  width: 100%;
+  font-size: small;
+  border-bottom: 2px solid black;
 }
 
-/* Minimal styling for the expense list */
 .expense-list {
   font-family: Arial, sans-serif;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 450px; 
 }
 
 .expense-item {
@@ -88,6 +103,7 @@ button{
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
+  padding: 3px 0;
 }
 
 .expense-description {
@@ -122,7 +138,7 @@ button{
   font-weight: bold;
 }
 
-.expense-amount{
+.expense-amount {
   color: #c0392b;
   font-weight: bold;
 }
