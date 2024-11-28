@@ -37,29 +37,35 @@ function Home() {
     }, [expenses])
 
     const deleteExpens = async (id) => {
-        try {
-            const url = `${APIUrl}/expenses/${id}`;
-            const headers = {
-                headers: {
-                    'Authorization': localStorage.getItem('token')
-                },
-                method: "DELETE"
+        const isConfirmed = window.confirm("Are you sure you want to delete this item?");
+        
+        if (isConfirmed) {
+            try {
+                const url = `${APIUrl}/expenses/${id}`;
+                const headers = {
+                    headers: {
+                        'Authorization': localStorage.getItem('token')
+                    },
+                    method: "DELETE"
+                }
+                const response = await fetch(url, headers);
+                if (response.status === 403) {
+                    localStorage.removeItem('token');
+                    navigate('/login');
+                    return;
+                }
+                const result = await response.json();
+                handleSuccess(result?.message);
+                console.log('--result', result.data);
+                setExpenses(result.data); 
+            } catch (err) {
+                handleError(err);
             }
-            const response = await fetch(url, headers);
-            if (response.status === 403) {
-                localStorage.removeItem('token');
-                navigate('/login');
-                return
-            }
-            const result = await response.json();
-            handleSuccess(result?.message)
-            console.log('--result', result.data);
-            setExpenses(result.data);
-        } catch (err) {
-            handleError(err);
+        } else {
+            console.log("Delete operation canceled.");
         }
     }
-
+    
     const fetchExpenses = async () => {
         try {
             const url = `${APIUrl}/expenses`;
@@ -81,8 +87,6 @@ function Home() {
             handleError(err);
         }
     }
-
-
 
     const addTransaction = async (data) => {
         try {
@@ -117,7 +121,7 @@ function Home() {
     return (
         <div>
             <div className='user-section'>
-                <h1>Welcome {loggedInUser}</h1>
+                <h1>⁓ {loggedInUser}</h1>
                 <button onClick={handleLogout}>Logout</button>
             </div>
             <ExpenseDetails
