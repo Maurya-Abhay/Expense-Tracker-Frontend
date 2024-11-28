@@ -95,7 +95,7 @@ button {
   font-family: Arial, sans-serif;
   flex-grow: 1;
   overflow-y: auto;
-  max-height: 440px; 
+  max-height: 430px; 
 }
 
 .expense-item {
