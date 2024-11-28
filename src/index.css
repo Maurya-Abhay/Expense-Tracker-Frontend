@@ -72,7 +72,7 @@ button {
   font-size: 13px;
   color: white;
   border-radius: 3px;
-  padding: 6px;
+  padding: 7px;
   cursor: pointer;
   margin: 6px 0;
 }
@@ -95,7 +95,7 @@ button {
   font-family: Arial, sans-serif;
   flex-grow: 1;
   overflow-y: auto;
-  max-height: 450px; 
+  max-height: 440px; 
 }
 
 .expense-item {
